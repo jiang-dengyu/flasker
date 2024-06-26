@@ -9,7 +9,15 @@
 - **用戶管理**：提供端點來獲取用戶詳細信息和更新用戶角色。
 - **後台管理**：一個僅對後台用戶身分可訪問的端點，用於管理其他用戶。
 
-## 開始使用
+# url
+
+- https://flasker-2.onrender.com
+- 會得到基本 json 格式資料
+  {
+  "msg": "welcome to index page"
+  }
+
+# 本地使用
 
 要在本地運行此應用程序，請按照以下步驟操作：
 
@@ -23,39 +31,39 @@ pip install Flask Flask-SQLAlchemy Flask-JWT-Extended Flask-Login
 5. terminal 中輸入 $python -m venv virtual 並接著$.\virtual\Scripts\activate 來設置 python 虛擬環境
 6. terminal 中輸入 $python create_db.py 先設置資料庫
 7. 然後 terminal 中輸入 $ python app.py 來啟動 Flask web app。
-8. 打開 postman 以訪問應用程序 api。
+8. 打開 postman 以訪問應用程序 api。(注意 url 要使用本地端 url 如 localhost.../)
 
 ## api 端點
 
 ### 用戶註冊
 
-- **URL**：`/api/register`
+- **URL**：`https://flasker-2.onrender.com/api/register` (本地 http://127.0.0.1:5000/api/register )
 - **方法**：POST
 - **描述**：用戶名稱和密碼註冊新用戶。
 
 ### 用戶登錄
 
-- **URL**：`/api/login`
+- **URL**：`https://flasker-2.onrender.com/api/login`
 - **方法**：POST
 - **描述**：登錄現有用戶並返回 JWT token。
 
 ### 獲取當前用戶
 
-- **URL**：`/api/user`
+- **URL**：`https://flasker-2.onrender.com/api/user`
 - **方法**：GET
 - **要求**：JWT token 在 Authorization 標頭中
 - **描述**：返回目前驗證的用戶的詳細信息。
 
 ### 更改用戶角色
 
-- **URL**：`/api/users/<int:user_id>/role`
+- **URL**：`https://flasker-2.onrender.com/api/users/<int:user_id>/role`
 - **方法**：PUT
 - **要求**：JWT token 在 Authorization 標頭中
 - **描述**：將用戶的角色更新為管理員。
 
 ### 後台管理
 
-- **URL**：`/api/admin`
+- **URL**：`https://flasker-2.onrender.com/api/admin`
 - **要求**：JWT token 在 Authorization 標頭中
 - **描述**：顯示所有用戶列表，只對管理員用戶可訪問。
 
@@ -64,5 +72,4 @@ pip install Flask Flask-SQLAlchemy Flask-JWT-Extended Flask-Login
 在此範例中使用的 JWT 秘鑰（`"my-secret"`）,可自行更改，以確保應用程序的安全性。
 
 ## 備註
-
-1. 目前本專案僅供 api 串接，template 部分尚未串接，因此無法在 web 上顯示渲染。
+目前本專案僅供 api 串接，template 部分尚未串接，因此無法在 web 上顯示渲染。
